@@ -118,12 +118,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-CRPTO_ENGINE = 'btc_exchange.btc_engine.crpto_compare.CrptoCompareEngine'
-
 STATIC_URL = '/static/'
 SERVER_CONFIG = {
-    'crpto_compare': {
-        'base_url': 'https://min-api.cryptocompare.com/',
-        'api_key': env('SERVER_API_KEY'),
-    }
+    'crpto_engine': 'btc_exchange.btc_engine.crpto_compare.CrptoCompareEngine',
+    'api_key': env('SERVER_API_KEY')
 }

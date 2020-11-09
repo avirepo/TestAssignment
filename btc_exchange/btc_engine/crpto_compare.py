@@ -14,11 +14,11 @@ class CrptoCompareEngine(BaseCrptoEngine):
     CONVERSION_SYMBOL = 'fsym=BTC&tsym=USD'
 
     def __init__(self):
-        crpto_compare_config = settings.SERVER_CONFIG.get('crpto_compare')
-        if not crpto_compare_config:
+        crpto_compare_api_key = settings.SERVER_CONFIG.get('api_key')
+        if not crpto_compare_api_key:
             raise Exception('crpto_compare Config is required in settings.SERVER_CONFIG')
-        self.api_key = crpto_compare_config.get('api_key')
-        self.base_url = crpto_compare_config.get('base_url')
+        self.api_key = crpto_compare_api_key
+        self.base_url = 'https://min-api.cryptocompare.com/'
 
     def get_historical_price(self, end_date: date, start_date: date = None, ):
         if start_date:

@@ -14,13 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf.urls import url
-from django.contrib import admin
-from django.urls import path
 
 from btc_exchange import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     url(r'price/', views.GetBitcoinPriceView.as_view(), name='btc_price'),
     url(r'history/', views.ListBitcoinPriceView.as_view(), name='btc_history'),
 ]

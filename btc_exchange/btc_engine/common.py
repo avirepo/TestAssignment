@@ -16,7 +16,7 @@ class BaseCrptoEngine(ABC):
 
 
 def get_register_crpto_engine() -> BaseCrptoEngine:
-    crpto_engine = settings.CRPTO_ENGINE
+    crpto_engine = settings.SERVER_CONFIG.get('crpto_engine')
     package = crpto_engine.rsplit('.', 1)
     if len(package) < 2:
         raise ValueError('Module registry in settings.CRPTO_ENGINE not found')
